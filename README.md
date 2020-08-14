@@ -12,40 +12,33 @@
 | first_name             | string  | null: false |
 | family_name_katakana   | string  | null: false |
 | first_name_katakana    | string  | null: false |
-| birthday               | decimal | null: false |
+| birthday               | date    | null: false |
 
 ### Association
 
-- has_many :items, thorough: item_users
-- has_one :purchase
+- has_many :users_items
+- has_many :items, through: :users_items
 
 ## items テーブル
 
-| Column               | Type   | Options     |
-| -------------------- | ------ | ----------- |
-| item_name            | string | null: false |
-| item_explanation     | string | null: false |
-| exhibitor_name       | string | null: false |
-| item_ price          | string | null: false |
+| Column               | Type     | Options     |
+| -------------------- | -------- | ----------- |
+| item_name            | string   | null: false |
+| item_explanation     | string   | null: false |
+| item_category        | genre_id | null: false |
+| item_condition       | genre_id | null: false |
+| shipping_charges     | genre_id | null: false |
+| shipping_area        | genre_id | null: false |
+| shipping_days        | genre_id | null: false |
+| item_price           | integer  | null: false |
 
 ### Association
 
-- has_many :users, thorough: item_users
-- has one :purchase
+- has_many :users_items
+- has_many :users, through: :users_items
 
-## item_users テーブル
 
-| Column               | Type      | Options                        |
-| -------------------- | --------- | ------------------------------ |
-| user                 | reference | null: false, foreign_key: true |
-| item                 | reference | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :item
-- belongs_to :user
-
-## purchases テーブル
+## users_items テーブル
 
 | Column               | Type      | Options                        |
 | -------------------- | --------- | ------------------------------ |
@@ -56,16 +49,18 @@
 - belongs_to :item
 - has one :address
 
-## address テーブル
+## addresses テーブル
 
 | Column               | Type      | Options                        |
 | -------------------- | --------- | ------------------------------ |
-| postal code          | string    | null: false                    |
+| postal_code          | integer   | null: false                    |
+| prefectures          | genre_id  | null: false                    |
 | city                 | string    | null: false                    |
 | address              | string    | null: false                    |
 | building             | string    |                                |
-| phone number         | string    | null: false                    |
+| phone_number         | integer   | null: false                    |
+| purchase             | reference | null: false, foreign_key: true |
 
 ### Association
 
--belongs_to :purchase
+- belongs_to :users_items
