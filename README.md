@@ -63,4 +63,4 @@
 
 ### Association
 
-- has one :users_items
+- belongs_to :users_items
