@@ -23,14 +23,14 @@
 
 | Column               | Type     | Options     |
 | -------------------- | -------- | ----------- |
-| item_name            | string   | null: false |
-| item_explanation     | string   | null: false |
-| item_category        | genre_id | null: false |
-| item_condition       | genre_id | null: false |
-| shipping_charges     | genre_id | null: false |
-| shipping_area        | genre_id | null: false |
-| shipping_days        | genre_id | null: false |
-| item_price           | integer  | null: false |
+| name                 | string   | null: false |
+| explanation          | string   | null: false |
+| category             | integer  | null: false |
+| condition            | integer  | null: false |
+| shipping_charges     | integer  | null: false |
+| shipping_area        | integer  | null: false |
+| shipping_days        | integer  | null: false |
+| price                | integer  | null: false |
 
 ### Association
 
@@ -54,13 +54,13 @@
 | Column               | Type      | Options                        |
 | -------------------- | --------- | ------------------------------ |
 | postal_code          | integer   | null: false                    |
-| prefectures          | genre_id  | null: false                    |
+| prefectures          | integer   | null: false                    |
 | city                 | string    | null: false                    |
 | address              | string    | null: false                    |
 | building             | string    |                                |
-| phone_number         | integer   | null: false                    |
-| purchase             | reference | null: false, foreign_key: true |
+| phone_number         | string    | null: false                    |
+| user_item            | reference | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users_items
+- has one :users_items
