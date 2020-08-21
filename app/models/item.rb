@@ -5,6 +5,14 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_charges
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :shipping_days
+  
 
-  validates :category, numericality: { other_than: 1 } 
+  with_options presence: true do
+    validates :category_id, numericality: { other_than: 1 } 
+    validates :condition_id, numericality: { other_than: 1 } 
+    validates :shipping_charges_id, numericality: { other_than: 1 } 
+    validates :shipping_area_id, numericality: { other_than: 1 } 
+    validates :shipping_days_id, numericality: { other_than: 1 } 
+    validates :price, numericality: { in: 300..9999999 }
+  end
 end
