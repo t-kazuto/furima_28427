@@ -15,5 +15,5 @@ class Item < ApplicationRecord
   validates :category_id, :condition_id, :shipping_charges_id, :shipping_area_id, :shipping_days_id
   end
 
-  validates :price, numericality: { greater_than: 300, less_than: 9999999 }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
 end
