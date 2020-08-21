@@ -10,8 +10,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
-    redirect_to action: :index
+    @item = Item.create(item_params)
+    if @item.save
+      redirect_to action: :index
+    else
+      render :new
+    end
   end
 
   private
