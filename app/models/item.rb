@@ -5,12 +5,15 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_charge
   belongs_to_active_hash :shipping_area
   belongs_to_active_hash :shipping_day
+  has_one_attached :image
 
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :condition_id, numericality: { other_than: 1 } 
-  validates :shipping_charges_id, numericality: { other_than: 1 } 
-  validates :shipping_area_id, numericality: { other_than: 1 } 
-  validates :shipping_days_id, numericality: { other_than: 1 } 
-  validates :price, numericality: { in: 300..9999999 }
-  
+  with_options presence: true do
+  validates :image, :name, :explanation, :category_id, :condition_id, :shipping_charges_id, :shipping_area_id, :shipping_days_id, :price
+  end
+
+  with_options numericality: { other_than: 1 }  do
+  validates :category_id, :condition_id, :shipping_charges_id, :shipping_area_id, :shipping_days_id
+  end
+
+  validates :price, numericality: { greater_than: 300, less_than: 9999999 }
 end
