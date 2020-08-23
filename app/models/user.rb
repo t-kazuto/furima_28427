@@ -15,10 +15,10 @@ class User < ApplicationRecord
 
   with_options presence: true do
     # #本人情報確認
-    validates :family_name, format: {with: zenkaku}
-    validates :first_name, format: {with: zenkaku}
-    validates :family_name_katakana, format: {with: zenkakukatakana}
-    validates :first_name_katakana, format: {with: zenkakukatakana}
+    validates :family_name, format: { with: zenkaku }
+    validates :first_name, format: { with: zenkaku }
+    validates :family_name_katakana, format: { with: zenkakukatakana }
+    validates :first_name_katakana, format: { with: zenkakukatakana }
     # #生年月日
     validates :birthday, presence: true
   end
