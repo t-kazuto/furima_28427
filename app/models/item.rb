@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  belongs_to :user
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -13,9 +14,9 @@ class Item < ApplicationRecord
     validates :explanation
     validates :category_id, numericality: { other_than: 1, message: 'Select' }
     validates :condition_id, numericality: { other_than: 1, message: 'Select' }
-    validates :shipping_charges_id, numericality: { other_than: 1, message: 'Select' }
+    validates :shipping_charge_id, numericality: { other_than: 1, message: 'Select' }
     validates :shipping_area_id, numericality: { other_than: 1, message: 'Select' }
-    validates :shipping_days_id, numericality: { other_than: 1, message: 'Select' }
+    validates :shipping_day_id, numericality: { other_than: 1, message: 'Select' }
     validates :price, format: { with: /\A[a-zA-Z0-9]+\z/ }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
     validates :image
   end
