@@ -27,9 +27,9 @@
 | explanation             | string   | null: false |
 | category_id             | integer  | null: false |
 | condition_id            | integer  | null: false |
-| shipping_charges_id     | integer  | null: false |
+| shipping_charge_id      | integer  | null: false |
 | shipping_area_id        | integer  | null: false |
-| shipping_days_id        | integer  | null: false |
+| shipping_day_id         | integer  | null: false |
 | price                   | integer  | null: false |
 
 ### Association
