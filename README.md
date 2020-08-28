@@ -15,7 +15,7 @@
 | birthday               | date    | null: false |
 
 ### Association
-
+- has_many :items
 - has_many :user_items
 - has_many :items, through: :user_items
 
@@ -33,7 +33,7 @@
 | price                   | integer  | null: false |
 
 ### Association
-
+- belongs_to :user
 - has_many :user_items
 - has_many :users, through: :user_items
 
@@ -54,7 +54,7 @@
 | Column               | Type       | Options                        |
 | -------------------- | ---------  | ------------------------------ |
 | postal_code          | integer    | null: false                    |
-| prefecture           | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
 | city                 | string     | null: false                    |
 | address              | string     | null: false                    |
 | building             | string     |                                |
