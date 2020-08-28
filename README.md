@@ -38,7 +38,7 @@
 - has_many :users, through: :users_items
 
 
-## users_items テーブル
+## user_items テーブル
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------  | ------------------------------ |
