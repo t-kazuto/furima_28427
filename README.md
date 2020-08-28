@@ -16,8 +16,8 @@
 
 ### Association
 
-- has_many :users_items
-- has_many :items, through: :users_items
+- has_many :user_items
+- has_many :items, through: :user_items
 
 ## items テーブル
 
@@ -34,8 +34,8 @@
 
 ### Association
 
-- has_many :users_items
-- has_many :users, through: :users_items
+- has_many :user_items
+- has_many :users, through: :user_items
 
 
 ## user_items テーブル
@@ -63,4 +63,4 @@
 
 ### Association
 
-- belongs_to :users_item
+- belongs_to :user_items
