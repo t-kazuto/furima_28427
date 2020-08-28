@@ -42,8 +42,8 @@
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------  | ------------------------------ |
-| user                 | references | null: false, foreign_key: true |
-| item                 | references | null: false, foreign_key: true |
+| user                 | references | foreign_key: true              |
+| item                 | references | foreign_key: true              |
 
 - belongs_to :uer
 - belongs_to :item
@@ -59,7 +59,7 @@
 | address              | string     | null: false                    |
 | building             | string     |                                |
 | phone_number         | string     | null: false                    |
-| user_item            | references | null: false, foreign_key: true |
+| user_item            | references | foreign_key: true              |
 
 ### Association
 
