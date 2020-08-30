@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :exhibitor_move_to_index, only: [:index]
+  before_action :move_to_index, only: [:index]
 
   def index
     @item = Item.find(params[:item_id])
-    @order = Order.new
+    @order = UserItemAddress.new
   end
 
   def create
@@ -14,17 +14,18 @@ class OrdersController < ApplicationController
       @order.save
       return redirect_to root_path
     else
+      @item = Item.find(params[:item_id])
       render 'index'
     end
   end
 
   private
-  def exhibitor_move_to_index
+  def move_to_index
     @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
        redirect_to root_path
-    else
-       render :index
+    elsif  @item.user_item.present?
+           redirect_to root_path
     end
   end
 
