@@ -45,7 +45,7 @@
 | user                 | references | foreign_key: true              |
 | item                 | references | foreign_key: true              |
 
-- belongs_to :uer
+- belongs_to :user
 - belongs_to :item
 - has one :address
 
