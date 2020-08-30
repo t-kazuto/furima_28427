@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :user_items
+  has_one :user_item
   has_many :users, through: :user_items
   has_one_attached :image
 
