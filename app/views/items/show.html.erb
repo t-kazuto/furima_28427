@@ -26,7 +26,8 @@
     </div>
 
     <%# ログインしていて、なおかつ、ログインしているユーザと出品しているユーザが同一人物でないとき表示しましょう。 %>
-    <% if user_signed_in? && (current_user.id == @item.user_id) %>
+    <% if @item.user_item.present? %>
+    <% elsif user_signed_in? && (current_user.id == @item.user_id) %>
     <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to '削除', item_path(@item), method: :delete, class:'item-destroy' %>
