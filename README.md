@@ -16,7 +16,7 @@
 
 ### Association
 - has_many :items
-- has_many :user_items
+- has_one :user_item
 - has_many :items, through: :user_items
 
 ## items テーブル
