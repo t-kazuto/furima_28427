@@ -15,9 +15,9 @@
 | birthday               | date    | null: false |
 
 ### Association
-
-- has_many :users_items
-- has_many :items, through: :users_items
+- has_many :items
+- has_one :user_item
+- has_many :items, through: :user_items
 
 ## items テーブル
 
@@ -33,34 +33,34 @@
 | price                   | integer  | null: false |
 
 ### Association
+- belongs_to :user
+- has_many :user_items
+- has_many :users, through: :user_items
 
-- has_many :users_items
-- has_many :users, through: :users_items
 
+## user_items テーブル
 
-## users_items テーブル
+| Column               | Type       | Options                        |
+| -------------------- | ---------  | ------------------------------ |
+| user                 | references | foreign_key: true              |
+| item                 | references | foreign_key: true              |
 
-| Column               | Type      | Options                        |
-| -------------------- | --------- | ------------------------------ |
-| user                 | reference | null: false, foreign_key: true |
-| item                 | reference | null: false, foreign_key: true |
-
-- belongs_to :uer
+- belongs_to :user
 - belongs_to :item
 - has one :address
 
 ## addresses テーブル
 
-| Column               | Type      | Options                        |
-| -------------------- | --------- | ------------------------------ |
-| postal_code          | integer   | null: false                    |
-| prefectures          | integer   | null: false                    |
-| city                 | string    | null: false                    |
-| address              | string    | null: false                    |
-| building             | string    |                                |
-| phone_number         | string    | null: false                    |
-| user_item            | reference | null: false, foreign_key: true |
+| Column               | Type       | Options                        |
+| -------------------- | ---------  | ------------------------------ |
+| postal_code          | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
+| city                 | string     | null: false                    |
+| address              | string     | null: false                    |
+| building             | string     |                                |
+| phone_number         | string     | null: false                    |
+| user_item            | references | foreign_key: true              |
 
 ### Association
 
-- belongs_to :users_item
+- belongs_to :user_items
