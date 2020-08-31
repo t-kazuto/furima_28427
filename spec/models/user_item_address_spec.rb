@@ -10,6 +10,11 @@ RSpec.describe Item, type: :model do
       expect(@order).to be_valid
     end
 
+    it 'buildingが存在していなくても登録できる' do
+      @order.building = nil
+      expect(@order).to be_valid
+    end
+
     it 'tokenが空では登録できない' do
       @order.token = nil
       @order.valid?
