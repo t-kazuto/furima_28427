@@ -9,7 +9,7 @@ class UserItemAddress
     validates :prefecture_id, numericality: { other_than: 1, message: 'Select' }
     validates :city
     validates :address
-    validates :phone_number, format: { with: /\A\d{,11}\z/ }
+    validates :phone_number, format: { with: /\A\d{11}\z/ }
   end
 
  def save
