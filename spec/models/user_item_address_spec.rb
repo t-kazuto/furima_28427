@@ -25,13 +25,13 @@ RSpec.describe Item, type: :model do
     it 'postal_codeにハイフンがなければ登録できない' do
       @order.postal_code = '1234567'
       @order.valid?
-      expect(@order.errors.full_messages).to include("Postal code is invalid")
+      expect(@order.errors.full_messages).to include('Postal code is invalid')
     end
 
     it 'prefecture_idが空では登録できない' do
       @order.prefecture_id = nil
       @order.valid?
-      expect(@order.errors.full_messages).to include("Prefecture Select")
+      expect(@order.errors.full_messages).to include('Prefecture Select')
     end
 
     it 'cityが空では登録できない' do
@@ -55,8 +55,7 @@ RSpec.describe Item, type: :model do
     it 'phone_numberにハイフンがあり、11桁以上だと登録できない' do
       @order.phone_number = '000-0000-00000'
       @order.valid?
-      expect(@order.errors.full_messages).to include("Phone number is invalid")
+      expect(@order.errors.full_messages).to include('Phone number is invalid')
     end
   end
 end
-
